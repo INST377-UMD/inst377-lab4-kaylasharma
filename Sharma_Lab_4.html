@@ -1,0 +1,79 @@
+<html>
+    <head>
+        <title>INST377 - Lab 4</title>
+        <link rel="stylesheet" href="Sharma_Lab_4_CSS.css">
+    </head>
+
+    <body>
+        <h1 id="header">INST377 - Lab 4</h1>
+
+        <div class="content-area">
+            <div class="content-boxes">
+                <form name="nameForm" onsubmit="return formValidation()">
+                    <label for="firstName">Name: </label>
+                    <input type="text" id="firstName">
+                    <input type="submit" value="Alert Me">
+                </form>
+            </div>
+
+            <div class="content-boxes">
+                <button onclick="colorSeclector()">Change Color</button>
+            </div>
+
+            <div class="content-boxes">
+                <form name="textForm" onsubmit="return formValidateText()">
+                    <label for="validText">Validate Text: </label>
+                    <input type="text" id="textInput">
+                    <input type="submit" value="Validate Text">
+                </form>
+            </div>
+
+            <div class="content-boxes">
+                <button onclick="addText()">Add Text</button>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+            function formValidation() {
+                const validationRegex = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+                const firstName = document.getElementById('firstName').value;
+        
+                if(firstName === "") {
+                    alert("Enter a First Name!!!");
+                    return false;
+                } else {
+                    alert("Hello " + firstName + "!");
+                    return false; 
+                }
+            }
+
+            function colorSeclector() {
+                if(document.body.style.backgroundColor !== "red") {
+                    document.body.style.backgroundColor = "red";
+                }
+
+                else {
+                    document.body.style.backgroundColor = "pink";
+                }
+            }
+
+            function formValidateText() {
+                var validation = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+                var text = document.getElementById("textInput").value;
+                
+                if (validation.test(text)) {
+                    alert("Invalid Input. The text contains special characters.");
+                    return false;
+                } else {
+                    alert("Valid Input. The text contains no special characters.");
+                    return false;
+                }
+            }
+
+            function addText() {
+                const header = document.getElementById("header");
+                header.textContent += " - Add Text";
+            }
+        </script>
+    </body>
+</html>
