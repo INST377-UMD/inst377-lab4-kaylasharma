@@ -1,6 +1,7 @@
 <html>
     <head>
         <title>INST377 - Lab 4</title>
+        <!-- connects to stylesheet-->
         <link rel="stylesheet" href="Sharma_Lab_4_CSS.css">
     </head>
 
@@ -9,6 +10,7 @@
 
         <div class="content-area">
             <div class="content-boxes">
+                <!-- Collects name, goes to formvalidation function on submit-->
                 <form name="nameForm" onsubmit="return formValidation()">
                     <label for="firstName">Name: </label>
                     <input type="text" id="firstName">
@@ -16,10 +18,12 @@
                 </form>
             </div>
 
+            <!-- Uses on click, goes to colorselector function-->
             <div class="content-boxes">
                 <button onclick="colorSeclector()">Change Color</button>
             </div>
 
+            <!-- Uses on submit, goes to formvalidatetext-->
             <div class="content-boxes">
                 <form name="textForm" onsubmit="return formValidateText()">
                     <label for="validText">Text Tester: </label>
@@ -28,11 +32,13 @@
                 </form>
             </div>
 
+            <!-- Uses on click, goes to addtext function-->
             <div class="content-boxes">
                 <button onclick="addText()">Add Text</button>
             </div>
         </div>
 
+        <!-- Javascript  -->
         <script type="text/javascript">
             function formValidation() {
                 const validationRegex = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
@@ -46,7 +52,7 @@
                     return false; 
                 }
             }
-
+            
             function colorSeclector() {
                 if(document.body.style.backgroundColor !== "red") {
                     document.body.style.backgroundColor = "red";
